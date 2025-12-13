@@ -217,10 +217,12 @@ export const Contact = () => {
                 />
               </div>
 
-              <Button type="submit" className="w-full" size="lg">
-                <Send className="w-5 h-5" />
-                Send Message
-              </Button>
+              <button type="submit" className="w-full">
+                <Button className="w-full" size="lg">
+                  <Send className="w-5 h-5" />
+                  Send Message
+                </Button>
+              </button>
             </form>
           </Card>
         </motion.div>

@@ -4,12 +4,9 @@ import {
   Database,
   Brain,
   Layers,
-  Wallet,
-  Video,
   GitBranch,
-  MessageSquare,
-  Palette,
   Terminal,
+  ListChecks, // new icon for DSA
 } from 'lucide-react';
 import { Section, SectionTitle } from '../ui/Section';
 import { Card } from '../ui/Card';
@@ -24,7 +21,7 @@ const skillCategories = [
   {
     title: 'Backend',
     icon: Terminal,
-    skills: ['Node.js', 'Express', 'FastAPI', 'Python', 'C++', 'Microservices'],
+    skills: ['Node.js', 'Express', 'FastAPI', 'Python', 'C++', 'Microservices', 'JWT', 'Bcrypt', 'Hashing/Salting'],
     color: 'from-blue-500 to-cyan-500',
   },
   {
@@ -48,8 +45,20 @@ const skillCategories = [
   {
     title: 'Tools & Others',
     icon: GitBranch,
-    skills: ['Git', 'GitHub', 'Bitbucket', 'Jira', 'Slack', 'Responsive Design', 'JWT', 'Bcrypt', 'Hashing/Salting'],
+    skills: ['Git', 'GitHub', 'Bitbucket', 'Jira', 'Slack', 'Responsive Design'],
     color: 'from-yellow-500 to-orange-500',
+  },
+  {
+    title: 'DSA & Problem Solving',
+    icon: ListChecks,
+    skills: [
+      'Data Structures',
+      'Algorithms',
+      'LeetCode (31+ problems solved)',
+      'Daily DSA Practice',
+      'Problem-Solving Mindset',
+    ],
+    color: 'from-pink-500 to-red-500',
   },
 ];
 
@@ -65,9 +74,12 @@ export const Skills = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.1, duration: 0.5 }}
+            transition={{ delay: index * 0.15, duration: 0.6 }}
           >
-            <Card gradient className="h-full">
+            <Card
+              gradient
+              className="h-full border-2 border-transparent hover:border-purple-500 transition-all duration-300"
+            >
               <div className="flex items-center gap-3 mb-4">
                 <div
                   className={`p-3 rounded-lg bg-gradient-to-br ${category.color} text-white shadow-lg`}
@@ -83,12 +95,12 @@ export const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                   <motion.span
                     key={skill}
-                    className="px-3 py-1.5 bg-white/50 dark:bg-gray-900/50 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700"
+                    className="px-3 py-1.5 bg-white/50 dark:bg-gray-900/50 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:shadow-md hover:bg-purple-100 dark:hover:bg-purple-900/40 transition-all"
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 + skillIndex * 0.05 }}
-                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileHover={{ scale: 1.15, y: -3 }}
                   >
                     {skill}
                   </motion.span>
@@ -99,15 +111,16 @@ export const Skills = () => {
         ))}
       </div>
 
+      {/* Closing statement */}
       <motion.div
         className="mt-16 text-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <Card gradient className="inline-block">
+        <Card gradient className="inline-block animate-pulse">
           <p className="text-lg text-gray-700 dark:text-gray-300">
-            Constantly learning and exploring new technologies to build better solutions
+            Constantly learning and exploring new technologies to build better solutions 🚀
           </p>
         </Card>
       </motion.div>

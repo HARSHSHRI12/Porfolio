@@ -26,13 +26,40 @@ export const About = () => {
             <div className="aspect-square rounded-2xl bg-gradient-to-br from-purple-500 to-blue-500 p-1">
               <div className="w-full h-full rounded-2xl bg-gray-900 flex items-center justify-center">
                 <div className="text-center">
-                  <motion.div
-                    className="text-8xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    HS
-                  </motion.div>
+           <motion.div
+  initial={{ opacity: 0, x: -80, scale: 0.9 }}
+  whileInView={{ opacity: 1, x: 0, scale: 1 }}
+  viewport={{ once: true }}
+  transition={{ duration: 1, ease: "easeOut" }}
+  className="relative flex justify-center lg:justify-start"
+>
+  {/* Floating animation */}
+  <motion.div
+    animate={{ y: [0, -12, 0] }}
+    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+    className="relative"
+  >
+    {/* Glow ring */}
+    <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 blur-2xl opacity-40 animate-pulse" />
+
+    {/* Gradient border */}
+    <div className="relative aspect-square w-72 rounded-3xl bg-gradient-to-br from-purple-500 via-blue-500 to-cyan-500 p-[3px]">
+      
+      {/* Glass layer */}
+      <div className="w-full h-full rounded-3xl bg-white/10 backdrop-blur-xl p-2">
+        
+        {/* Image */}
+        <motion.img
+          src="/assets/harsh.jpg"
+          alt="Harsh Shrivastava"
+          className="w-full h-full object-cover rounded-2xl shadow-2xl"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.4 }}
+        />
+      </div>
+    </div>
+      </motion.div>
+       </motion.div>
                   <p className="text-gray-400 mt-4">Full Stack Developer</p>
                 </div>
               </div>
